@@ -10,10 +10,74 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_13_195918) do
+ActiveRecord::Schema.define(version: 2021_12_21_011924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calendario_produccions", force: :cascade do |t|
+    t.integer "id_fabricacion"
+    t.string "id_calendario_integer"
+    t.string "cantidad_integer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "calendarios", force: :cascade do |t|
+    t.integer "dia"
+    t.integer "mes"
+    t.integer "año"
+    t.string "semana"
+    t.string "trimestre"
+    t.date "dia_calendario"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "fabricacions", force: :cascade do |t|
+    t.integer "id_proyectos"
+    t.integer "fabricado"
+    t.integer "restante"
+    t.float "porcentaje_avance"
+    t.string "area"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "incidencia", force: :cascade do |t|
+    t.integer "id_proyecto"
+    t.string "tipo_incidencia"
+    t.text "descripcion_cambio"
+    t.date "fecha_entrega_produccion"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "proyectos", force: :cascade do |t|
+    t.string "numero_proyecto"
+    t.string "OV"
+    t.string "cliente"
+    t.string "OC"
+    t.string "emisor_OC"
+    t.string "vendedor"
+    t.string "cotizacion"
+    t.string "status"
+    t.date "fecha_entrega_cliente"
+    t.string "descripcion_cotizacion"
+    t.string "descripcion_OC"
+    t.string "proyecto"
+    t.integer "lote"
+    t.string "ubicacion_entrega"
+    t.string "planta"
+    t.string "contacto"
+    t.string "armadora_tier_1"
+    t.string "carta_autorizacion"
+    t.string "tipo"
+    t.string "tipo_N_R"
+    t.string "tipo_FA_P"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
