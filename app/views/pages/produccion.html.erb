@@ -1,0 +1,43 @@
+<% date = Date.new(2021,12,27)%>
+<% year = [] %>
+<% for day_of_year in 0..395 do %>
+<% day_of_year = date.strftime("%b %d") %>
+  <% year << day_of_year %>
+  <% date += 1 %>
+<% end %>
+<h1>Programa de produccion Bioin</h1>
+
+<button id="diario">Diario</button>
+<button id="semanal">Semanal</button>
+<button id="mensual">Mensual</button>
+<table>
+<tr>
+  <th>Locación</th>
+  <th>Linea</th>
+  <th>Cliente</th>
+  <th>Proyecto</th>
+  <th>OC</th>
+  <th>Programado</th>
+  <th>Avance</th>
+  <th>% Avance</th>
+  <% for day in year do %>
+    <th><%= day %></th>
+  <% end %>
+  </tr>
+
+<tr>
+  <td>PL1</td>
+  <td>L1</td>
+  <td>AUMA</td>
+  <td>CYCLONE</td>
+  <td>846</td>
+  <td>222</td>
+  <td>0</td>
+  <td> 26.24 %</td>
+  <% for data in 1..year.length do %>
+    <td>20</td>
+  <% end %>
+</tr>
+
+
+</table>
